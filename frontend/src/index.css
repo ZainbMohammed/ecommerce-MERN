@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,7 +9,9 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
+  font-family: "Tajawal", "sans-serif";
+  direction: rtl;
+
 }
 .linearGradient {
   background: linear-gradient(180deg, #fde1ff 0%, #e1ffea22 60%);
@@ -32,7 +37,7 @@
 @layer base {
 
   .active_link{
-    @apply text-secondary relative flex-1 after:w-full after:h-[1px] after:bg-secondary after:absolute after:-bottom-3 after:right-0;
+    @apply text-sky-600 relative flex-1 after:w-full after:h-[1px] after:bg-sky-600 after:absolute after:-bottom-3 after:right-0;
   }
   
   .h1 {
@@ -73,7 +78,7 @@
   }
 
   .btn_secondary_rounded  { 
-    @apply  medium-15 border border-secondary bg-secondary px-7 py-3 text-white transition-all hover:bg-[#ff6b1c] rounded-full 
+    @apply  medium-16 border border-sky-600 bg-sky-600 px-3 py-2 text-white transition-all hover:bg-sky-700 rounded-full ml-1
   }
 
   .max-container {
