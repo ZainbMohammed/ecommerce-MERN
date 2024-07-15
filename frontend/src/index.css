@@ -11,6 +11,7 @@
   box-sizing: border-box;
   font-family: "Tajawal", "sans-serif";
   direction: rtl;
+  user-select: none;
 
 }
 .linearGradient {

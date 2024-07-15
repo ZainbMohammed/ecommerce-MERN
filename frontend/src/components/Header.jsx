@@ -1,7 +1,7 @@
 import { Link, NavLink } from 'react-router-dom';
 import Navbar from './Navbar';
 import Logo from '../assets/logo.svg';
-import LogoutIcon from '../assets/logout.svg';
+// import LogoutIcon from '../assets/logout.svg';
 import UserIcon from '../assets/user.svg';
 import { useState } from 'react';
 import { MdClose, MdMenu } from 'react-icons/md';
@@ -13,7 +13,7 @@ const Header = () => {
     const toggleMenu = () => setIsMenueOpened(!isMenueOpened)
 
     return (
-        <header className='fixed top-0 left-0 m-auto max_padd_container w-full bg-transparent ring-1 ring-slate-900/5 z-10'>
+        <header className='fixed bg-white top-0 left-0 m-auto max_padd_container w-full bg-transparent ring-1 ring-slate-900/5 z-10'>
 
             <div className=' flexBetween py-3 max-xs:px-2'>
                 {/* logo */}

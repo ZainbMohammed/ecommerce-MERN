@@ -4,17 +4,17 @@ const Navbar = ({ containerStyles }) => {
 
   return <>
     <nav className={`${containerStyles}`}>
-      <NavLink to={'/'}>
-        <div className='fiexCenter gap-x-1'><MdHomeFilled />الرئيسية</div>
+      <NavLink to={'/'} className={({isActive}) => isActive ? 'active_link' : ''}>
+        <div className='flexCenter gap-x-1'><MdHomeFilled />الرئيسية</div>
       </NavLink>
-      <NavLink to={'/mens'}>
-        <div className='fiexCenter gap-x-1'><MdCategory />رجال</div>
+      <NavLink to={'/mens'} className={({isActive}) => isActive ? 'active_link' : ''}>
+        <div className='flexCenter gap-x-1'><MdCategory />رجال</div>
       </NavLink>
-      <NavLink to={'/womens'}>
-        <div className='fiexCenter gap-x-1'><MdShop2 />نساء</div>
+      <NavLink to={'/womens'} className={({isActive}) => isActive ? 'active_link' : ''}>
+        <div className='flexCenter gap-x-1'><MdShop2 />نساء</div>
       </NavLink>
-      <NavLink to={'/kids'}>
-        <div className='fiexCenter gap-x-1'><MdContacts />اطفال</div>
+      <NavLink to={'/kids'} className={({isActive}) => isActive ? 'active_link' : ''}>
+        <div className='flexCenter gap-x-1'><MdContacts />اطفال</div>
       </NavLink>
       
       
