@@ -1,6 +1,8 @@
 import { Link, NavLink } from 'react-router-dom';
 import Navbar from './Navbar';
-import Logo from '../assets/logo.svg';
+// import Logo from '../assets/logo.svg';
+// import Logo from '../assets/logo.svg';
+import Logo from '../assets/e-logo.png';
 // import LogoutIcon from '../assets/logout.svg';
 import UserIcon from '../assets/user.svg';
 import { useState } from 'react';
@@ -18,7 +20,7 @@ const Header = () => {
             <div className=' flexBetween py-3 max-xs:px-2'>
                 {/* logo */}
                 <div>
-                    <Link><img src={Logo} alt='logo' height={66} width={66}></img></Link>
+                    <Link><img src={Logo} alt='logo' height={66} width={66} className='rounded-full'></img></Link>
                 </div>
 
                 {/* Navbar in desktop */}
