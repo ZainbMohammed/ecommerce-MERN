@@ -50,6 +50,7 @@ export const POPULAR = [
   },
 ];
 
+// export default POPULAR;
 
 export const LATEST = [
   {
@@ -109,18 +110,19 @@ export const LATEST = [
     old_price: 150.0,
   },
 ];
+// export default LATEST;
 
 // FOOTER SECTION
 export const FOOTER_LINKS = [
   {
     title: "Learn More",
     links: [
-      "About Us",
-      "Categories",
-      "Exchange Policy",
-      "Order Now",
-      "FAQ",
-      "Privacy Policy",
+     "معلومات عنا",
+ "فئات",
+ "سياسة التبادل",
+ "اطلب الان",
+ "التعليمات",
+ "سياسة الخصوصية",
     ],
   },
   {
@@ -132,6 +134,7 @@ export const FOOTER_LINKS = [
     ],
   },
 ];
+// export default FOOTER_LINKS;
 
 export const FOOTER_CONTACT_INFO = {
   title: "Contact Us",
@@ -140,6 +143,7 @@ export const FOOTER_CONTACT_INFO = {
     { label: "Email Address", value: "info@shoppee.com" },
   ],
 };
+export default FOOTER_CONTACT_INFO;
 
 export const SOCIALS = {
   title: "Social",
@@ -152,3 +156,4 @@ export const SOCIALS = {
   ],
 };
 
+// export default SOCIALS;

@@ -3,12 +3,12 @@
   {
     title: "Learn More",
     links: [
-      "About Us",
-      "Categories",
-      "Exchange Policy",
-      "Order Now",
-      "FAQ",
-      "Privacy Policy",
+      "معلومات عنا",
+  "فئات",
+  "سياسة التبادل",
+  "اطلب الان",
+  "الأسئلة الشائعة",
+  "سياسة الخصوصية",
     ],
   },
   {
