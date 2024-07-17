@@ -1,10 +1,12 @@
-import Footer from "../components/Footer"
+// import Footer from "../components/Footer"
 import Hero from "../components/Hero"
+import Popular from "../components/Popular"
 
 const Home = () => {
   return <>
   <Hero></Hero>
-  <Footer />
+  <Popular/>
+  {/* <Footer /> */}
   </>
 }
 

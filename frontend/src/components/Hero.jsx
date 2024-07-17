@@ -4,7 +4,7 @@ import {FaStar} from 'react-icons/fa';
 import { NavLink } from 'react-router-dom'
 const Hero = () => {
     return <>
-        <section className='relative bg-hero bg-center bg-no-repeat h-screen w-full'>
+        <section className='relative bg-hero bg-center bg-cover bg-no-repeat h-screen w-full'>
             <div className='max_padd_container relative top-32 xs:top-52'>
                 <h1 className='h1 max-w-[37rem]'>تيست ستور</h1>
                 <p className='text-gray-90 font-light regular-16 mt-6 max-w-[33rem]'>اكتشف عالم التسوق المتنوع والمذهل الذي يضم منتجات فريدة تناسب جميع الأعمار والفئات. تسوق الآن واستمتع بتجربة لا تُنسى مع عروضنا المميزة وخدماتنا الاستثنائية</p>
