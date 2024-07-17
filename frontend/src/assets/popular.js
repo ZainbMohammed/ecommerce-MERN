@@ -4,7 +4,7 @@ import p2_img from './product_2.png'
 import p3_img from './product_3.png'
 import p4_img from './product_4.png'
 
- const POPULAR = [
+ export const POPULAR = [
   {
     id:1,
     name:"Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
@@ -32,4 +32,4 @@ import p4_img from './product_4.png'
   },
 ];
 
-export default POPULAR;
+// export default POPULAR;
