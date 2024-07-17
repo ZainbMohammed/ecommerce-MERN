@@ -1,7 +1,7 @@
 
  const FOOTER_LINKS = [
   {
-    title: "Learn More",
+    title: "اعرف أكثر",
     links: [
       "معلومات عنا",
   "فئات",
@@ -12,11 +12,11 @@
     ],
   },
   {
-    title: "Our Community",
+    title: "مجتمعنا",
     links: [
-      "Terms and Conditions",
-      "Special Offers",
-      "Customer Reviews",
+      "الشروط",
+      "عروض خاصة",
+      "ارآء العملاء",
     ],
   },
 ];

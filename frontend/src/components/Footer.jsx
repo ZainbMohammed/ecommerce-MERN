@@ -15,22 +15,24 @@ const Footer = () => {
     )
   }
   return <>
-    <footer>
-      <div>
+    <footer className='flexCenter pb-24 pt-20'>
+      <div className='max_padd_container flex w-full '>
         <div>
           <Link to='/' className='mb-10 bold-20'>Shoppee</Link>
           <div className='flex flex-wrap gap-8 sm:justify-between md:flex-1'>
             {FOOTER_LINKS.map((col) => {
               // console.log(col);
               <FooterColumn title={col.title} key={col.title}>
-              {/* console.log(col); */}
+              {/* {console.log(col.title)}
+              {console.log('hi')} */}
 
                 <ul className='flex flex-col gap-4 regular-14 text-gry-20'>
-                  {console.log(col)}
+                   {console.log(col.links[0])} 
                   {col.links.map((link,index) => (
-                
-                    // <Link to={'/'} key={link}><img src={link} alt='socialIcon' height={22} width={22}></img></Link>
-                    <li key={index}>{link}</li>
+                    // console.log(link);
+                    
+                    <Link to={'/'} key={index}>{link}</Link>
+                    // <li key={index}>{link}</li>
 
                   ))}
                 </ul>
