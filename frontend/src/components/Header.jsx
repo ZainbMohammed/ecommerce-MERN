@@ -47,8 +47,8 @@ const Header = () => {
                                 <FaOpencart className='p-1 w-8 h-8 ring-slate-900/30 ring-1 rounded-full'/>
                                 <span className='relative flexCenter w-5 h-5 rounded-full  bg-sky-600 text-white medium-14 -top-2'>0</span>
                             </NavLink>
-                            {/* <NavLink to={'logout'} className={'btn_secondary_rounded flexCenter gap-x-2 medium-16 hidden'}>تسجيل الخروج<img src={LogoutIcon} alt='logout icon' width={19} height={19} className='text-center'/></NavLink> */}
-                            <NavLink to={'login'} className={'btn_secondary_rounded flexCenter gap-x-2 medium-16'}>تسجيل الدخول<img src={UserIcon} alt='logout icon' width={19} height={19} className='text-center'/></NavLink>
+                            {/* <NavLink to={'logout'} className={'btn_secondary_rounded flexCenter gap-x-2 medium-16 hidden'}>Logout<img src={LogoutIcon} alt='logout icon' width={19} height={19} className='text-center'/></NavLink> */}
+                            <NavLink to={'login'} className={'btn_secondary_rounded flexCenter gap-x-2 medium-16'}>Login<img src={UserIcon} alt='logout icon' width={19} height={19} className='text-center'/></NavLink>
 
                         </div>
                 </div>
