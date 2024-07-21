@@ -2,6 +2,7 @@ import { POPULAR } from "../assets/popular";
 import Item from "./Item";
 
 const Popular = () => {
+
     return <>
         <section className='bg-primary'>
             <div className='max_padd_container py-12 xl:py-28 xl:w-[88%]'>
