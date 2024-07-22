@@ -1,8 +1,11 @@
+import CartItems from "../components/CartItems"
+import Header from "../components/Header"
 
 const Cart = () => {
-  return (
-    <div>Cart</div>
-  )
+  return <>
+  <CartItems />
+  
+  </>
 }
 
 export default Cart
