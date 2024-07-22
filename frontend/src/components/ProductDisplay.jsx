@@ -1,11 +1,14 @@
+import { useContext } from 'react';
 import product_rt_1 from '../assets/product_rt_1.png';
 import product_rt_2 from '../assets/product_rt_2.png';
 import product_rt_3 from '../assets/product_rt_3.png';
 import product_rt_4 from '../assets/product_rt_4.png';
 import { MdStar } from 'react-icons/md';
+import { ShopContext } from '../Context/ShopContext';
 
 const ProductDisplay = ({ product }) => {
 
+    const {addToCart} = useContext(ShopContext);
     return <>
         <section>
             <div className='flex flex-col gap-14 xl:flex-row '>
@@ -50,7 +53,7 @@ const ProductDisplay = ({ product }) => {
                         </div>
 
                         <div className='flex flex-col gap-y-3 mb-4 max-w-[555px]'>
-                            <button className='btn_dark_outline !rounded-none uppercase regular-14 tracking-widest'>Add to cart</button>
+                            <button onClick={()=>{addToCart(product.id)}} className='btn_dark_outline !rounded-none uppercase regular-14 tracking-widest'>Add to cart</button>
                             <button className='btn_dark_rounded !rounded-none uppercase regular-14 tracking-widest'>Buy it now</button>
                         </div>
 
