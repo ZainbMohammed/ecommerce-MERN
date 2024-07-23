@@ -17,6 +17,7 @@ const product = AllProducts.find((e) => e.id === Number(productId));
 if(!product){
   return <div>Product Not Found</div>
 }
+// console.log(product);
   return <>
 
     <section className='max_padd_container py-28'>

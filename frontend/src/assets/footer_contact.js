@@ -1,9 +1,9 @@
 
- const FOOTER_CONTACT_INFO = {
-  title: 'تواصل معنا',
+const FOOTER_CONTACT_INFO = {
+  title: "Contact Us",
   links: [
-    { label: 'رقم التواصل', value: '+967 739 806 881' },
-    { label: 'الأيميل', value: 'zain.mohh22@gmail.com' },
+    { label: "Contact Number", value: "123-456-7890" },
+    { label: "Email Address", value: "info@shoppee.com" },
   ],
 };
 

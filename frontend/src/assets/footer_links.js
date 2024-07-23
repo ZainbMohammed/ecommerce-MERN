@@ -1,22 +1,22 @@
 
- const FOOTER_LINKS = [
+const FOOTER_LINKS = [
   {
-    title: "اعرف أكثر",
+    title: "Learn More",
     links: [
-      "معلومات عنا",
-  "فئات",
-  "سياسة التبادل",
-  "اطلب الان",
-  "الأسئلة الشائعة",
-  "سياسة الخصوصية",
+      "About Us",
+      "Categories",
+      "Exchange Policy",
+      "Order Now",
+      "FAQ",
+      "Privacy Policy",
     ],
   },
   {
-    title: "مجتمعنا",
+    title: "Our Community",
     links: [
-      "الشروط",
-      "عروض خاصة",
-      "ارآء العملاء",
+      "Terms and Conditions",
+      "Special Offers",
+      "Customer Reviews",
     ],
   },
 ];

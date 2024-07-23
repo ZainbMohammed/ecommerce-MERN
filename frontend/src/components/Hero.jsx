@@ -4,7 +4,7 @@ import {FaStar} from 'react-icons/fa';
 import { NavLink } from 'react-router-dom'
 const Hero = () => {
     return <>
-        <section className='relative bg-hero bg-center bg-cover bg-no-repeat h-screen w-full'>
+        <section className='relative bg-hero bg-cover bg-center bg-no-repeat h-screen w-full'>
             <div className='max_padd_container relative top-32 xs:top-52'>
                 <h1 className='h2 max-w-[37rem]'>MarketJoy</h1>
                 <p className='text-gray-90 font-light regular-16 mt-6 max-w-[33rem]'>Discover the diverse and amazing world of shopping that includes unique products to suit all ages and categories. Shop now and enjoy an unforgettable experience with our special offers and exceptional services Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, molestias!</p>
