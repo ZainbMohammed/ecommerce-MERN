@@ -1,2 +1,2 @@
 # E-commerce web app 
-## MERN Stack
+## MERN Stack MongoDB - Express - Reactjs - Node.js
