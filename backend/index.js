@@ -29,7 +29,7 @@ const storage = multer.diskStorage({
   filename: (req, file, cb) => {
     return cb(
       null,
-      `${file.fieldname}_${Date.now()} ${path.extname(file.originalname)}`
+      `${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`
     );
   },
 });
@@ -45,7 +45,7 @@ app.post("/upload", upload.single("product"), (req, res) => {
   });
 });
 
-schema for creation products
+// schema for creation products
 const Product = mongoose.model("Product", {
   id: {
     type: Number,
@@ -67,7 +67,7 @@ const Product = mongoose.model("Product", {
     type: Number,
     required: true,
   },
-  old_peice: {
+  old_price: {
     type: Number,
     required: true,
   },
@@ -83,6 +83,17 @@ const Product = mongoose.model("Product", {
 
 app.post('/addProduct',async (req,res) => {
 
+  let products = await Product.find({})
+  let id;
+  if(products.length > 0){
+    let last_product_array = products.slice(-1);
+    let last_product = last_product_array[0];
+    console.log("last_product_array =>",last_product_array);
+    console.log("last_product =>",last_product);
+    id = last_product.id + 1;
+  }else{
+    id = 1;
+  }
   const product = new Product({
   
     id: req.body.id,
@@ -95,7 +106,7 @@ app.post('/addProduct',async (req,res) => {
   });
   console.log(product);
   await product.save();
-  console.log('saced');
+  console.log('saved');
 
   res.json({
     success:true,
@@ -103,6 +114,8 @@ app.post('/addProduct',async (req,res) => {
   })
 
 })
+
+
 
 app.listen(process.env.PORT, () => {
   console.log("app listing on port 3000");
