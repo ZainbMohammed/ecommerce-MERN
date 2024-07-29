@@ -115,6 +115,17 @@ app.post('/addProduct',async (req,res) => {
 
 })
 
+// delete product
+app.post('/removeProduct', async(req,res) => {
+
+  await Product.findOneAndDelete({ id: req.body.id });
+  console.log('removed successful');
+
+  res.json({
+    success: true,
+    name: req.body.name,
+  });
+})
 
 
 app.listen(process.env.PORT, () => {
