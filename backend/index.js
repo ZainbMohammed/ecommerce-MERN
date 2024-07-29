@@ -127,7 +127,13 @@ app.post('/removeProduct', async(req,res) => {
   });
 })
 
+// get allproducts
+app.get('/allProducts', async (req,res) => {
+  let products = await Product.find({});
+  console.log('allproducts fetching');
+  res.send(products);
 
+})
 app.listen(process.env.PORT, () => {
   console.log("app listing on port 3000");
 });
