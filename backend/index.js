@@ -7,6 +7,7 @@ const multer = require("multer");
 const path = require("path");
 const cors = require("cors");
 const { type } = require("os");
+const AutoIncrement = require('mongoose-sequence')(mongoose);
 
 app.use(express.json());
 app.use(cors());
@@ -46,11 +47,14 @@ app.post("/upload", upload.single("product"), (req, res) => {
 });
 
 // schema for creation products
-const Product = mongoose.model("Product", {
-  id: {
-    type: Number,
-    required: true,
-  },
+const productSchema =  new mongoose.Schema({
+  // id: {
+  //   // type: Number,
+  //   // required: true,
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   required: true,
+  //   default: () => new mongoose.Types.ObjectId()
+  // },
   name: {
     type: String,
     required: true,
@@ -81,6 +85,7 @@ const Product = mongoose.model("Product", {
   },
 });
 
+
 app.post('/addProduct',async (req,res) => {
 
   let products = await Product.find({})
@@ -88,8 +93,8 @@ app.post('/addProduct',async (req,res) => {
   if(products.length > 0){
     let last_product_array = products.slice(-1);
     let last_product = last_product_array[0];
-    console.log("last_product_array =>",last_product_array);
-    console.log("last_product =>",last_product);
+    // console.log("last_product_array =>",last_product_array);
+    // console.log("last_product =>",last_product);
     id = last_product.id + 1;
   }else{
     id = 1;
@@ -106,7 +111,7 @@ app.post('/addProduct',async (req,res) => {
   });
   console.log(product);
   await product.save();
-  console.log('saved');
+  // console.log('saved');
 
   res.json({
     success:true,
@@ -119,7 +124,7 @@ app.post('/addProduct',async (req,res) => {
 app.post('/removeProduct', async(req,res) => {
 
   await Product.findOneAndDelete({ id: req.body.id });
-  console.log('removed successful');
+  // console.log('removed successful');
 
   res.json({
     success: true,
@@ -130,7 +135,7 @@ app.post('/removeProduct', async(req,res) => {
 // get allproducts
 app.get('/allProducts', async (req,res) => {
   let products = await Product.find({});
-  console.log('allproducts fetching');
+  // console.log('allproducts fetching');
   res.send(products);
 
 })
