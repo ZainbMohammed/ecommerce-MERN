@@ -84,7 +84,10 @@ const productSchema =  new mongoose.Schema({
     default: true,
   },
 });
+// Add the auto-increment plugin to the schema
+productSchema.plugin(AutoIncrement, { inc_field: 'id' });
 
+const Product = mongoose.model('Product', productSchema);
 
 app.post('/addProduct',async (req,res) => {
 
