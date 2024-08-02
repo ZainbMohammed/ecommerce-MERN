@@ -48,13 +48,7 @@ app.post("/upload", upload.single("product"), (req, res) => {
 
 // schema for creation products
 const productSchema =  new mongoose.Schema({
-  // id: {
-  //   // type: Number,
-  //   // required: true,
-  //   type: mongoose.Schema.Types.ObjectId,
-  //   required: true,
-  //   default: () => new mongoose.Types.ObjectId()
-  // },
+
   name: {
     type: String,
     required: true,
@@ -84,6 +78,7 @@ const productSchema =  new mongoose.Schema({
     default: true,
   },
 });
+
 // Add the auto-increment plugin to the schema
 productSchema.plugin(AutoIncrement, { inc_field: 'id' });
 
