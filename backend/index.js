@@ -137,6 +137,62 @@ app.get('/allProducts', async (req,res) => {
   res.send(products);
 
 })
+
+// users
+// user schema
+const User = mongoose.model('User',{
+  
+    name: {
+      type: String,
+    },
+    email: {
+      type: String,
+      unique: true,
+    },
+    password: {
+      type: String,
+    },
+    carData: {
+      type: Object,
+    },
+    date: {
+      type: Date,
+      default: Date.now
+    },
+})
+
+// signup endpoint
+app.post('/signup' , async(req,res) => {
+  let check = await User.findOne({email: req.body.email});
+  if (check){
+    return res.status(400).json({
+      success:false,
+      errors:'Existing user found with same email address',
+    })
+  }
+  let cart = {}; 
+  for(let i = 0; i < 300; i++){
+    cart[i] = 0;
+  }
+  const user = new User({
+    name: req.body.username,
+    email: req.body.email,
+    password: req.body.username,
+    carData: cart,
+  })
+  await User.save();
+
+  const data = {
+    user: {
+      id: user.id
+    }
+  }
+  const token = jwt.sign(data, 'secret_ecom');
+  res.json({
+    success:true,
+    token
+  })
+})
 app.listen(process.env.PORT, () => {
   console.log("app listing on port 3000");
 });
