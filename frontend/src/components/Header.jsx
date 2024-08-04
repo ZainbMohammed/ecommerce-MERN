@@ -3,18 +3,23 @@ import Navbar from './Navbar';
 // import Logo from '../assets/logo.svg';
 // import Logo from '../assets/logo.svg';
 import Logo from '../assets/e-logo.png';
-// import LogoutIcon from '../assets/logout.svg';
+import LogoutIcon from '../assets/logout.svg';
 import UserIcon from '../assets/user.svg';
 import { useContext, useState } from 'react';
 import { MdClose, MdMenu } from 'react-icons/md';
-import {FaOpencart} from 'react-icons/fa';
+import { FaOpencart } from 'react-icons/fa';
 import { ShopContext } from '../Context/ShopContext';
 
 const Header = () => {
 
     const [isMenueOpened, setIsMenueOpened] = useState(false);
-    const toggleMenu = () => setIsMenueOpened(!isMenueOpened)
-const {getTotalCartItems} = useContext(ShopContext);
+    const toggleMenu = () => setIsMenueOpened(!isMenueOpened);
+
+    const logouthandler = () => {
+        localStorage.removeItem('auth-token');
+        window.location.replace('/login');
+    }
+    const { getTotalCartItems } = useContext(ShopContext);
     return (
         <header className='fixed bg-white top-0 left-0 m-auto max_padd_container w-full bg-transparent ring-1 ring-slate-900/5 z-10'>
 
@@ -38,20 +43,24 @@ const {getTotalCartItems} = useContext(ShopContext);
                 {/* Buttons */}
                 <div className='flexBetween sm:gap-x-3 bold-16'>
                     {!isMenueOpened ? (
-                        <MdMenu className='md:hidden cursor-pointer hover:text-sky-600 mr-2 p-1 ring-1 ring-slate-900/30 h-8 w-8 rounded-full' onClick={toggleMenu}/>
+                        <MdMenu className='md:hidden cursor-pointer hover:text-sky-600 mr-2 p-1 ring-1 ring-slate-900/30 h-8 w-8 rounded-full' onClick={toggleMenu} />
                     ) : (
                         <MdClose className='md:hidden cursor-pointer hover:text-sky-600 mr-2 p-1 ring-1 ring-slate-900/30 h-8 w-8 rounded-full' onClick={toggleMenu} />)}
 
-                        <div className='flexBetween sm:gap-x-6 cursor-pointer'>
+                    <div className='flexBetween sm:gap-x-6 cursor-pointer'>
 
-                            <NavLink to={'cart-page'} className={'flex'}>
-                                <FaOpencart className='p-1 w-8 h-8 ring-slate-900/30 ring-1 rounded-full'/>
-                                <span className='relative flexCenter w-5 h-5 rounded-full  bg-sky-600 text-white medium-14 -top-2'>{getTotalCartItems()}</span>
-                            </NavLink>
-                            {/* <NavLink to={'logout'} className={'btn_secondary_rounded flexCenter gap-x-2 medium-16 hidden'}>Logout<img src={LogoutIcon} alt='logout icon' width={19} height={19} className='text-center'/></NavLink> */}
-                            <NavLink to={'login'} className={'btn_secondary_rounded flexCenter gap-x-2 medium-16'}>Login<img src={UserIcon} alt='logout icon' width={19} height={19} className='text-center'/></NavLink>
+                        <NavLink to={'cart-page'} className={'flex'}>
+                            <FaOpencart className='p-1 w-8 h-8 ring-slate-900/30 ring-1 rounded-full' />
+                            <span className='relative flexCenter w-5 h-5 rounded-full  bg-sky-600 text-white medium-14 -top-2'>{getTotalCartItems()}</span>
+                        </NavLink>
 
-                        </div>
+                        {localStorage.getItem('auth-token')
+                            ? (
+                                <NavLink to={'logout'} onClick={() => {logouthandler()}} className={'btn_secondary_rounded flexCenter gap-x-2 medium-16 hidden'}>Logout<img src={LogoutIcon} alt='logout icon' width={19} height={19} className='text-center' /></NavLink>
+                            ) : (
+                                <NavLink to={'login'} className={'btn_secondary_rounded flexCenter gap-x-2 medium-16'}>Login<img src={UserIcon} alt='logout icon' width={19} height={19} className='text-center' /></NavLink>)
+                        }
+                    </div>
                 </div>
             </div>
 

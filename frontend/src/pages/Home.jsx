@@ -9,13 +9,12 @@ import Category from "./Category"
 
 const Home = () => {
   return <>
-  <Hero></Hero>
+  <Hero />
   <Popular/>
   <Offer/>
   <NewCollections/>
   <NewLetter/>
   <Category category={Category}/>
-  <Footer />
   </>
 }
 

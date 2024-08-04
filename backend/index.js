@@ -42,6 +42,7 @@ app.use("/images", express.static("upload/images"));
 app.post("/upload", upload.single("product"), (req, res) => {
   res.json({
     success: 1,
+    message: 'Uploaded successful',
     image_url: `http://localhost:${process.env.PORT}/images/${req.file.filename}`,
   });
 });
@@ -91,8 +92,6 @@ app.post('/addProduct',async (req,res) => {
   if(products.length > 0){
     let last_product_array = products.slice(-1);
     let last_product = last_product_array[0];
-    // console.log("last_product_array =>",last_product_array);
-    // console.log("last_product =>",last_product);
     id = last_product.id + 1;
   }else{
     id = 1;
@@ -109,10 +108,10 @@ app.post('/addProduct',async (req,res) => {
   });
   console.log(product);
   await product.save();
-  // console.log('saved');
 
   res.json({
     success:true,
+    message: 'Added successful',
     name:req.body.name
   })
 
@@ -126,6 +125,7 @@ app.post('/removeProduct', async(req,res) => {
 
   res.json({
     success: true,
+    message: 'Deleted successful',
     name: req.body.name,
   });
 })
@@ -167,7 +167,7 @@ app.post('/signup' , async(req,res) => {
   if (check){
     return res.status(400).json({
       success:false,
-      errors:'Existing user found with same email address',
+      message:'Existing user found with same email address',
     })
   }
   let cart = {}; 
@@ -177,10 +177,10 @@ app.post('/signup' , async(req,res) => {
   const user = new User({
     name: req.body.username,
     email: req.body.email,
-    password: req.body.username,
+    password: req.body.password,
     carData: cart,
   })
-  await User.save();
+  await user.save();
 
   const data = {
     user: {
@@ -190,8 +190,41 @@ app.post('/signup' , async(req,res) => {
   const token = jwt.sign(data, 'secret_ecom');
   res.json({
     success:true,
+    message:'Signup successful',
     token
   })
+})
+
+// login
+app.post('/login', async(req,res) => {
+  let user = await User.findOne({email: req.body.email});
+  if(user){
+    const passMatch = req.body.password === user.password;
+
+    if(passMatch){
+      const data = {
+        user: {
+          id: user.id
+        }
+      }
+      const token = jwt.sign(data,'secret_ecom');
+      res.json({
+        success: true,
+        message: 'Login successful',
+        token
+      })
+    }else {
+      res.json({
+        success: false,
+        message: 'Password is wrong ):'
+      })
+    }
+  }else {
+    res.json({
+      success:false,
+      message: 'User not found with this email'
+    })
+  }
 })
 app.listen(process.env.PORT, () => {
   console.log("app listing on port 3000");
