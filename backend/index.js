@@ -226,6 +226,13 @@ app.post('/login', async(req,res) => {
     })
   }
 })
+
+app.get('/newCollections',async (req,res) => {
+  let products= await Product.find({});
+  let newCollection = products.slice(1).slice(-8);
+  console.log('newCollections fetched');
+  res.send(newCollection);
+})
 app.listen(process.env.PORT, () => {
   console.log("app listing on port 3000");
 });
