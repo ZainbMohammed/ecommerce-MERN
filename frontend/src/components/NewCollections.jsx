@@ -1,8 +1,17 @@
 
-import LATEST from '../assets/latest'
+import { useEffect, useState } from 'react'
 import Item from './Item'
 
 const NewCollections = () => {
+
+    const [newCollection, setNewCollection] = useState([]);
+
+    useEffect(() => {
+
+        fetch('http://localhost:4000/newCollections')
+             .then((res) => res.json())
+             .then((data) => setNewCollection(data))
+    },[])
   return <>
   <section className='bg-primary'>
             <div className='max_padd_container py-12 xl:py-28 xl:w-[88%]'>
@@ -10,7 +19,7 @@ const NewCollections = () => {
                 <hr className='h-[3px] md:w-1/2 mx-auto bg-gradient-to-l from-transparent via-gray-400 to-transparent mb-12'/>
                 {/* container */}
                 <div className='grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3  xl:grid-cols-4 gap-6'>
-                    {LATEST.map((item) => (
+                    {newCollection.map((item) => (
                         // console.log(item.id);
                          <Item
                             key = {item.id} 
