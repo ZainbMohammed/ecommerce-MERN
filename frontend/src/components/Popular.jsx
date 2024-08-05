@@ -1,7 +1,16 @@
-import { POPULAR } from "../assets/popular";
+import { useEffect, useState } from "react";
 import Item from "./Item";
 
 const Popular = () => {
+
+    const [popularProducts, setPopularProducts] = useState([]);
+
+    useEffect(() => {
+
+        fetch('http://localhost:4000/popularProducts')
+             .then((res) => res.json())
+             .then((data) => setPopularProducts(data))
+    },[])
 
     return <>
         <section className='bg-primary'>
@@ -10,7 +19,7 @@ const Popular = () => {
                 <hr className='h-[3px] md:w-1/2 mx-auto bg-gradient-to-l from-transparent via-gray-400 to-transparent mb-12'/>
                 {/* container */}
                 <div className='grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3  xl:grid-cols-4 gap-6'>
-                    {POPULAR.map((item) => (
+                    {popularProducts.map((item) => (
                         // console.log(item.id);
                          <Item
                             key = {item.id} 
